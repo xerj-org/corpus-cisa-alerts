@@ -27,25 +27,32 @@ The authoritative source is always
    - Every advisory URL discovered this way that was not already covered by a
      feed was fetched individually (**334 pages**).
 
-**Total: 403 documents.** This is a bounded, recent-window mirror
+**Total fetched: 403 documents.** This is a bounded, recent-window mirror
 (2025-05 … 2026-10), not the full ~5,000-advisory archive.
 
 Non-advisory items encountered in the main listing walk (20 resource/fact-sheet
 publication cards under `/resources-tools/`) were skipped — they are not
-advisories. Zero advisories were skipped for empty or access-restricted bodies.
+advisories.
+
+**Quality pass (same day, before pinning).** 79 of the 403 fetched captures
+were "Page Not Found" error pages the site served in place of the advisory
+(stale listing entries): dropped. Feed captures carried the reader's site
+navigation chrome around the advisory body: stripped (front-matter and advisory
+body kept byte-verbatim; 65 files affected). **324 documents remain** — the
+counts below are post-pass.
 
 ## Counts
 
 | type | files | meaning |
 | --- | --- | --- |
-| `alert` | 192 | `/news-events/alerts/…` (KEV-catalog additions, vendor alerts) |
-| `aa` | 11 | `AA*` joint cybersecurity advisories + `AR*` analysis reports (id field retains `AR…`) |
-| `ics` | 170 | `ICSA-*` ICS advisories |
+| `alert` | 118 | `/news-events/alerts/…` (KEV-catalog additions, vendor alerts) |
+| `aa` | 6 | `AA*` joint cybersecurity advisories + `AR*` analysis reports (id field retains `AR…`) |
+| `ics` | 133 | `ICSA-*` ICS advisories |
 | `ics-med` | 30 | `ICSMA-*` ICS medical advisories |
 
-By year: 329 files from 2026, 74 from 2025. Largest file 136,699 bytes
-(`ics/2026/icsa-26-188-05.md`); total ≈ 3.5 MB. `MANIFEST.tsv` lists
-`path → type → source URL` for every file.
+By year: 124 files in `alerts/` (2026-heavy), 200 in `ics/` (2025–2026).
+`MANIFEST.tsv` lists `path → type → source URL` for every fetched URL; the
+79 dropped captures are marked `DROPPED page-not-found` there.
 
 ## Layout
 
